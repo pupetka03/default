@@ -1,0 +1,10 @@
+q = Ihor
+
+
+print "Sohodni vana krasavcik"
+print {q}
+print hi  {q} 
+
+
+
+    
