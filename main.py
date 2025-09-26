@@ -2,6 +2,7 @@ import sys
 from core.executor import executor 
 
 
+#return list code [example: ['q = Ihor', 'print "Sohodni vana krasavcik"', 'print {q}', 'print hi  {q}']]
 def open_fail(fail):
     code = []
     fail_open = fail
@@ -11,21 +12,19 @@ def open_fail(fail):
             if lines:
                 code.append(lines)
     
-    return code
+    return code 
 
 
 def main(fail):
-
-    #fail = input(">>> ")
-    #fail = 'test'
     fail_code = open_fail(fail)
-    executor(fail_code, fail)
+    executor(fail_code, fail) #start executor
 
 
-if len(sys.argv) > 1:
-    file_path = sys.argv[1]
-    main(file_path)
+#start compilator
+if __name__ == "__main__":
+    main('test.txt')  #start from vs code
+    #if len(sys.argv) > 1:    # if you have app
+        #file_path = sys.argv[1]
+        #main(file_path)
 
 
-#if __name__ == "__main__":
-#    main()

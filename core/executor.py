@@ -32,6 +32,6 @@ def executor(code, file_path):
             result = commands_advanced[function_commands_name](function_commands, variables)
             code += f"{result}\n"
 
-    print(code.strip())
 
+    print(code.strip())
     save_output_in_same_dir(file_path, code)

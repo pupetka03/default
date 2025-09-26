@@ -6,8 +6,13 @@ def print_stm(fun, variables):
     for item in max_value_in_print:
         if item.startswith("{") and item.endswith("}"):
             var_name = item[1:-1]
-            if var_name in variables and fun[0] > variables[var_name][0]:
-                ret_print.append((variables[var_name][1]))
+            for var in variables:
+                if var['key'] == var_name and fun[0] > var['value'][0]:
+                    ret_print.append(var["value"][1])
+
+                
+            #if var_name in variables and fun[0] > variables[var_name][0]:
+                #ret_print.append((variables[var_name][1]))
                
         elif item.startswith('"') and not item.endswith('"'):
             ret_print.append((item[1:]))
