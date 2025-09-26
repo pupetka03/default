@@ -2,8 +2,15 @@
 build/
 dist/
 *.spec
+.DS_Store
 
 #Test Files
 tests/
 scripts
+output.txt
+test.txt
+test2.txt
 
+#python
+__pycache__/
+*.pyc

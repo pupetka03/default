@@ -1,23 +1,26 @@
 from core.variables import global_variables
+import re
 
 def parser_main(code):
-
-    fun = [] #exemple [1, 'print' "Sohodni ok"'), ]
-    variables_parser = {} #exemple {'q': (0, 'Ihor')}
+    fun = []  # список викликів функцій або рядків з { } / " " / ' '
     
-    size = len(code)
+    # список всіх функцій, які треба ловити
+    function_names = [
+        "print", "cheknut()", "sum", "pom", "riz", "dil", "napus"
+    ]
+    # regex для пошуку будь-якої функції з list
+    func_pattern = re.compile(r"\b(" + "|".join(function_names) + r")\b")
 
-    #fun
-    for i in range(size):
-        if "=" in code[i]:
-            key, value = code[i].split('=', 1)
+    for i, line in enumerate(code):
+        if "=" in line:
+            key, value = line.split("=", 1)
             key = key.strip()
             value = value.strip()
-            variables_parser[key] = (i, value) 
-            global_variables.set_variables(key=key, value = (i, value))
+            global_variables.set_variables(key=key, value=(i, value))
 
-        if "{" in code[i] or "}" in code[i] or '"' in code[i] or "'" in code[i]:
-            fun.append((i, code[i]))
+        # якщо рядок містить функцію або { } або " "
+        if func_pattern.search(line) or "{" in line or "}" in line or '"' in line or "'" in line:
+            fun.append((i, line))
 
 
-    return fun, global_variables.get_variables()
+    return fun

@@ -1,11 +1,12 @@
-q = Ihor
-a = Pisa
+print 'enter your name:'
+name = cheknut()
+print "enter your age:"
+age = cheknut()
+d = ,
+
+print your {name}, your age is: {age}
 
 
-print "hi hitler2"
-print {q} {q}
-print hi  {a} 
 
 
 
-    

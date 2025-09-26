@@ -19,19 +19,35 @@ def save_output_in_same_dir(file_path, content):
 
 
 def executor(code, file_path):
-    fun, variables = parser_main(code)
+    fun = parser_main(code)
     size = len(fun)
 
     code = " "
+    code_for_terminal = ' '
+
+    def search_commands(function_commands_name, function_commands):
+        nonlocal code
+        if function_commands_name in commands_advanced:
+            result = commands_advanced[function_commands_name](function_commands)
+            if result is not None:
+                code += f"{result}\n"
+                code_for_terminal = f"{result}"
+                print(code_for_terminal.strip())
+
+
 
     for i in range(size):
         function_commands = fun[i]
+
+        if "=" in function_commands[1]:
+            func_commands_name = function_commands[1].split()[2]
+            search_commands(func_commands_name, function_commands)
+        #print(function_commands)
+
+
         function_commands_name = function_commands[1].split()[0]
-
-        if function_commands_name in commands_advanced:
-            result = commands_advanced[function_commands_name](function_commands, variables)
-            code += f"{result}\n"
+        search_commands(function_commands_name, function_commands)
+        #print(f"function_commands_name: {function_commands_name}")
 
 
-    print(code.strip())
     save_output_in_same_dir(file_path, code)

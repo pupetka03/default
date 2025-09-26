@@ -1,3 +1,3 @@
-hi hitler2
-Ihor Ihor
-hi Pisa
+'enter your name:'
+"enter your age:"
+your Ihor, your age is: 16 ,
