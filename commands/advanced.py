@@ -38,6 +38,7 @@ def cheknut(fun):
         for var in global_variables:
             if var['key'] == change:
                 pos = var['value'][0]
+                break
 
         new_value = input()
 

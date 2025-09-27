@@ -1,12 +1,5 @@
-print 'enter your name:'
+print "enter"
 name = cheknut()
-print "enter your age:"
-age = cheknut()
-d = ,
-
-print your {name}, your age is: {age}
-
-
-
-
-
+print {name}
+name = cheknut()
+print {name} "meno2"

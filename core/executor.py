@@ -42,12 +42,10 @@ def executor(code, file_path):
         if "=" in function_commands[1]:
             func_commands_name = function_commands[1].split()[2]
             search_commands(func_commands_name, function_commands)
-        #print(function_commands)
 
 
         function_commands_name = function_commands[1].split()[0]
         search_commands(function_commands_name, function_commands)
-        #print(f"function_commands_name: {function_commands_name}")
 
 
     save_output_in_same_dir(file_path, code)

@@ -8,8 +8,9 @@ class Variables():
 
     def set_update(self, key, pos, new_value):
         for var in self.global_variables:
-            if var['key'] == key:
+            if var['key'] == key and var['value'][0] == pos:
                 var['value'] = (pos, new_value)
+                break
 
 
 
