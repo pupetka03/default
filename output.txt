@@ -1,3 +1,1 @@
-enter
-ihor
-ihor2 meno2
+[(3, 'print {a}')]

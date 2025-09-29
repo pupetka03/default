@@ -4,7 +4,16 @@ class Variables():
 
 
     def set_variables(self, **kwargs): 
-        self.global_variables.append(kwargs)
+        if not self.global_variables:
+            self.global_variables.append(kwargs)
+            return
+
+        for i, var in enumerate(self.global_variables):
+            if var["key"] == kwargs["key"]:
+                self.global_variables[i] = kwargs
+                break
+        else:
+            self.global_variables.append(kwargs)
 
     def set_update(self, key, pos, new_value):
         for var in self.global_variables:

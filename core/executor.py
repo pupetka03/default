@@ -1,6 +1,6 @@
 import sys, os
-from core.parser import parser_main
 from commands.advanced import commands_advanced
+
 
 def resource_path(relative_path):
 
@@ -15,12 +15,11 @@ def save_output_in_same_dir(file_path, content):
     output_file = os.path.join(output_dir, "output.txt")
 
     with open(output_file, "w") as f:
-        f.write(content.strip())
+        f.write(str(content))
 
 
-def executor(code, file_path):
-    fun = parser_main(code)
-    size = len(fun)
+def executor_start(code, file_path):
+    fun = code
 
     code = " "
     code_for_terminal = ' '
@@ -35,17 +34,16 @@ def executor(code, file_path):
                 print(code_for_terminal.strip())
 
 
+    function_commands = fun[0]
 
-    for i in range(size):
-        function_commands = fun[i]
-
-        if "=" in function_commands[1]:
-            func_commands_name = function_commands[1].split()[2]
-            search_commands(func_commands_name, function_commands)
+    if "=" in function_commands[1]:
+        func_commands_name = function_commands[1].split()[2]
+        search_commands(func_commands_name, function_commands)
 
 
-        function_commands_name = function_commands[1].split()[0]
-        search_commands(function_commands_name, function_commands)
+    function_commands_name = function_commands[1].split()[0]
+    search_commands(function_commands_name, function_commands)
 
 
-    save_output_in_same_dir(file_path, code)
+    save_output_in_same_dir(file_path, fun)
+
