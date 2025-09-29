@@ -7,7 +7,7 @@ def parser_main(code, fail):
     
     # список всіх функцій, які треба ловити
     function_names = [
-        "print", "cheknut()", "sum", "pom", "riz", "dil", "napus"
+        "nadpys", "cheknut", "sum", "pom", "riz", "dil"
     ]
     # regex для пошуку будь-якої функції з list
     func_pattern = re.compile(r"\b(" + "|".join(function_names) + r")\b")

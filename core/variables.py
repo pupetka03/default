@@ -21,8 +21,6 @@ class Variables():
                 var['value'] = (pos, new_value)
                 break
 
-
-
     def get_variables(self):
         return self.global_variables
 

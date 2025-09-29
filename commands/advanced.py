@@ -54,6 +54,6 @@ def cheknut(fun):
 
 
 commands_advanced = {
-    'print': print_stm,
+    'nadpys': print_stm,
     'cheknut()': cheknut
 }
