@@ -28,7 +28,7 @@ def main(fail):
 
 #start compilator
 if __name__ == "__main__":
-    main('test.dft')  #start from vs code
+    main('test2.txt')  #start from vs code
     #if len(sys.argv) > 1:    # if you have app
         #file_path = sys.argv[1]
         #main(file_path)

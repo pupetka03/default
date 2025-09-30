@@ -15,10 +15,10 @@ class Variables():
         else:
             self.global_variables.append(kwargs)
 
-    def set_update(self, key, pos, new_value):
+    def set_update(self, key, pos, var_type, new_value):
         for var in self.global_variables:
             if var['key'] == key and var['value'][0] == pos:
-                var['value'] = (pos, new_value)
+                var['value'] = (pos, var_type, new_value)
                 break
 
     def get_variables(self):
