@@ -18,7 +18,7 @@ def print_stm(fun):
             var_value = var_name
             for var in global_variables:
                 if var['key'] == var_name and fun[0] > var['value'][0]:
-                    var_value = str(var['value'][1])
+                    var_value = str(var['value'][2])
                     break
             
             # додати змінну + все, що після дужки (кома, символи)
@@ -32,17 +32,20 @@ def print_stm(fun):
 
 def cheknut(fun):
     pos = None
+    var_type = None
+
     funcia = fun[1].split()
     if "=" in funcia:
-        change = funcia[0]
+        change = funcia[1]
         for var in global_variables:
             if var['key'] == change:
                 pos = var['value'][0]
+                var_type = var['value'][1]
                 break
 
         new_value = input()
 
-        global_variables.set_update(change, pos, new_value)
+        global_variables.set_update(change, pos, var_type, new_value)
 
     else:
         none_value = input()

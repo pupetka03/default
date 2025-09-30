@@ -37,7 +37,7 @@ def executor_start(code, file_path):
     function_commands = fun[0]
 
     if "=" in function_commands[1]:
-        func_commands_name = function_commands[1].split()[2]
+        func_commands_name = function_commands[1].split()[3]
         search_commands(func_commands_name, function_commands)
 
 
